@@ -18,7 +18,7 @@ const midLinks = [
     },
     {
         title: 'contact', path: '/contact'
-    },
+    }
 ]
 
 const rightLinks = [
@@ -68,6 +68,15 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                                 {title.toUpperCase()}
                             </ListItem>
                         ))}
+                        {user && user.roles?.includes('Admin') &&
+                            <ListItem
+                                component={NavLink}
+                                to={'/inventory'}
+                                sx={navStyles}
+                            >
+                                INVENTORY
+                            </ListItem>
+                        }
                     </List>
                 </Box>
                 <Box display='flex' alignItems='center'>
